@@ -4,12 +4,12 @@ import Movies from './components/movies';
 
 import './App.css';
 
-function App() {
+const App = () => {
   return (
     <main className='container'>
       <Movies />
     </main>
   );
-}
+};
 
 export default App;
