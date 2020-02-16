@@ -2,15 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 
-import Movies from './components/movies';
-import MovieForm from './components/movieForm';
-import Customers from './components/customers';
-import Rentals from './components/rentals';
-import NotFound from './components/notFound';
-import NavBar from './components/navBar';
-import LoginForm from './components/loginForm';
-import Logout from './components/logout';
-import RegisterForm from './components/registerForm';
+import Header from './components/header/header.component';
+import HomePage from './pages/homepage/homepage.component';
+// import Movies from './components/movies/movies.component';
+import MovieForm from './components/movie-form/movieForm.component';
+import Customers from './pages/customers/customers';
+import Rentals from './pages/rental/rentals';
+import NotFound from './components/not-found/notFound.component';
+import SignIn from './pages/sign-in/sign-in.component';
+import SignOut from './components/sign-out/sign-out.component';
+import SignUp from './pages/sign-up/sign-up.component';
 import ProtectedRoute from './components/common/protectedRoute';
 import auth from './services/authService';
 
@@ -28,16 +29,20 @@ const App = () => {
   return (
     <React.Fragment>
       <ToastContainer />
-      <NavBar user={user} />
+      <Header user={user} />
       <main className='container'>
         <Switch>
-          <Route path='/register' component={RegisterForm} />
-          <Route path='/login' component={LoginForm} />
-          <Route path='/logout' component={Logout} />
+          <Route path='/register' component={SignUp} />
+          <Route path='/login' component={SignIn} />
+          <Route path='/logout' component={SignOut} />
           <ProtectedRoute path='/movies/:id' component={MovieForm} />
-          <Route
+          {/* <Route
             path='/movies'
             render={props => <Movies {...props} user={user} />}
+          /> */}
+          <Route
+            path='/movies'
+            render={props => <HomePage {...props} user={user} />}
           />
           <Route path='/customers' component={Customers} />
           <Route path='/rentals' component={Rentals} />

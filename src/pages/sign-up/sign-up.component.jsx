@@ -1,10 +1,10 @@
 import React from 'react';
 import Joi from 'joi-browser';
-import Form from './common/form';
-import * as userService from '../services/userService';
-import auth from '../services/authService';
+import Form from '../../components/common/form';
+import * as userService from '../../services/userService';
+import auth from '../../services/authService';
 
-class RegisterForm extends Form {
+class SignUp extends Form {
   state = {
     data: { username: '', password: '', name: '' },
     errors: {}
@@ -54,4 +54,4 @@ class RegisterForm extends Form {
   }
 }
 
-export default RegisterForm;
+export default SignUp;

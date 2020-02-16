@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
-import Pagination from './common/pagination';
-import ListGroup from './common/listGroup';
-import MoviesTable from './moviesTable';
-import SearchBox from './searchBox';
+import Pagination from '../common/pagination';
+import ListGroup from '../common/listGroup';
+import MoviesTable from '../movies-table/moviesTable.component';
+import SearchBox from '../search-box/searchBox';
 
-import { getMovies, deleteMovie } from '../services/movieService';
-import { getGenres } from '../services/genreService';
-import { paginate } from '../utils/paginate';
+import { getMovies, deleteMovie } from '../../services/movieService';
+import { getGenres } from '../../services/genreService';
+import { paginate } from '../../utils/paginate';
 
 import _ from 'lodash';
 
